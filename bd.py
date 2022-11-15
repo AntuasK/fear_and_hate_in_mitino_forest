@@ -5,4 +5,4 @@ location_now = []
 location_deck = []
 
 
-
+#Пусть  здесь  оже что-то будет
