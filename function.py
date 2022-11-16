@@ -1,16 +1,4 @@
-import time, random, bd, game_data
-
-
-def print_text(list_t, *args):
-    """Функция принимает имя листа откуда нужно забрать текст,
-     принимает последовательность индексов - принтует из массива по полученным индексам"""
-    for i in args:
-        if len(list_t[i]) > 250:  # Кол-во символов
-            print(list_t[i])
-            # time.sleep(3.0)
-        else:
-            print(list_t[i])
-            time.sleep(0.5)
+import random
 
 
 def player_examination(switch_case):
@@ -24,6 +12,18 @@ def player_examination(switch_case):
         else:
             print('Нет доступных вариантов. Введите свой ответ корректно.')
     return player_in
+
+
+def print_text(list_t, *args):
+    """Функция принимает имя листа откуда нужно забрать текст,
+     принимает последовательность индексов - принтует из массива по полученным индексам"""
+    for i in args:
+        if len(list_t[i]) > 250:  # Кол-во символов
+            print(list_t[i])
+            # time.sleep(3.0)
+        else:
+            print(list_t[i])
+            # time.sleep(0.5)
 
 
 def location_deck_ivent():
@@ -83,18 +83,4 @@ def location_deck_ivent():
 
     return out  # ВЫХОД ИЗ ФУНКЦИИ
 
-
-def location_start():
-    """Функция определяет локацию из общего списка и добавляет её в списоки:
-     location_name, location_open, location_now
-    удаляет выбранную локацию и общего списка, создает последовательность событий карты"""
-
-    #if len(game_data.location_name_full) > 0:
-    bd.location_name = game_data.location_name_full[random.randint(0, 5)] # Определяем имя локации
-    bd.location_open.append(bd.location_name)  # добавляем локацию в список открытых
-    bd.location_now.append(bd.location_name)
-    game_data.location_name_full.remove(bd.location_name)
-    bd.location_deck = location_deck_ivent()
-
-    pass
 
