@@ -19,3 +19,6 @@ new_location = Location(location_name=name, location_deck=loc_deck)
 new_location.location_event()
 print('Это специальное изменение дял ГИТА, чтобы я понял наконец как эта херня работает')
 
+# Вот совсем нихрена непонятно как это работает
+
+
