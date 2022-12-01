@@ -2,6 +2,8 @@ import game_texts
 from game_texts import lang_flag
 from random import randint
 
+#Возможно стоит упаковать все в классы
+
 
 
 
