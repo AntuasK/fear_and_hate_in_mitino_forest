@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3740df6f-2fed-4c5d-8f3a-450394e5b8db" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/fear_and_hate_in_mitino_forest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clases.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/function.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/text.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
