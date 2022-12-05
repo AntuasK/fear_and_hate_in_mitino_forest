@@ -1,7 +1,9 @@
 from random import shuffle
-"""Все функции проекта, внтури каждой есть докстринг"""
+from game_texts import texts_location_now, lang_flag
+from game_data import location_name_full
+import game_define
 
-# Чисто затестить коммиты
+"""Все функции проекта, внтури каждой есть докстринг"""
 
 
 def player_examination(switch_case):
@@ -50,7 +52,8 @@ def location_deck_ivent(map_size, map_nothing_happens, map_mob, map_lut, map_sas
     mob = round(map_mob * location_deck_size)
     lut = round(map_lut * location_deck_size)
     saspiens = round(map_saspiens * location_deck_size)
-    txt = round(map_txt * location_deck_size) #+ 1  # Эта фигня будет работать только если на локации есть хотя бы 1 текст
+    txt = round(
+        map_txt * location_deck_size)  # + 1  # Эта фигня будет работать только если на локации есть хотя бы 1 текст
 
     # Добавляет события в список out
     while txt > 0:
@@ -108,62 +111,54 @@ def mob_name_generation(mob_name_1, mob_name_2, mob_name_3, lang_flag):
 
 
 def get_change_location(now_loc, open_loc):
-    """Функция создает список открытых локаций и предлагает игроку переместится в одну из них"""
-    # Добавитьт: Ты сейчас находишься здесь!
-    # Куда хочешь пойти - далее список
-    # Создать мэп лист, или добавить в словарь индекс из списка локейшн оупен
-    # Сделать что-то с разделением блоков НАЗАД и ЧТО БУДЕШЬ ДЕЛАТЬ
+    """Функция создает список открытых локаций и предлагает игроку переместится в одну из них
+    Возвращает номер локации из списка"""
 
     list_now = now_loc
     list_open = open_loc
 
+    # Создаем словарь для принтовки доступных локаций
+    location_open_dict = {}
+    location_index_dict = {}
+
     if len(open_loc) > 1:
+        # Куда хочешь пойти:
+        print_text(texts_location_now, lang_flag, 0)
+        n = 1
         for i in list_open:
-            if i == list_now[0]:
-                list_open.remove(i)
+            if i != list_now[-1]:
+                location_open_dict[n] = location_name_full[lang_flag][i]
+                location_index_dict[location_name_full[lang_flag][i]] = i
+                n += 1
+            else:
+                pass
+        # Вариант "НАЗАД"
+        location_open_dict[0] = texts_location_now[lang_flag][1]
 
-        location_open_dict = {}
-        location_open_index_dict = {}
-
-        # Создаем словарь для принтовки доступных локаций
-        n = 0
-        for z in range(1, len(list_open) + 1):
-            location_open_dict[z] = list_open[n]
-            n += 1
-
-        print(list_open)
-
-        # Создаем словарь для хранения индексов
-        for i in list_open:
-            location_open_index_dict[i] = list_open.index(i)
-
-        print(location_open_index_dict)
-
-
-        location_open_dict[0] = 'назад'  # Заменить на переменную с языком
-
-        # формируем свитчкейс из ключей словаря
+        # Формируем свитчкейс из ключей словаря
         switch_case = []
         for x in range(1, len(location_open_dict) + 1):
             switch_case.append(str(x))
 
         switch_case.append(str(0))
 
-        # циклом фор принтуем каждое значение словаря
         for i in location_open_dict:
             a = f'{i} - {location_open_dict[i].title()}'
             print(a)
 
         player_in_clear = player_examination(switch_case)
 
-        if player_in_clear == '0':
-            return
+        if player_in_clear == game_define.A:
+            return player_in_clear
+            pass
+        elif player_in_clear != game_define.A:
+            name_location = str(location_open_dict[int(player_in_clear)])
+            index_location = location_index_dict[name_location]
+            return index_location
+            pass
         else:
-
-            print('Идем создавать новую локацию по номеру')
-    else:
-        print('Нет доступных локаций для перемещения')
-
+            print('ЗАГЛУШКА: Функция ГЕТ ЧЕЙНДЖ ЛОКЕЙШН - вернулось что-то непонятное')
+            pass
 
 
 

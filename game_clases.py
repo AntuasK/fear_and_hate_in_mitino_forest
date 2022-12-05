@@ -4,9 +4,6 @@ from random import randint
 
 #Возможно стоит упаковать все в классы
 
-
-
-
 # Локации
 class Location:
 
@@ -18,12 +15,12 @@ class Location:
 
     def location_long_name(self):
         """Форматирует имя локации"""
-        long_name = self.location_name[0].title()
+        long_name = self.location_name.title()
         return long_name
 
     # Выводит имя локации где сейчас находится игрок
     def location_name_now_print(self):
-        a = f'\nМесто вокруг тебя называется {self.location_name[0].title()}'
+        a = f'\nМесто вокруг тебя называется {self.location_name.title()}'
         return a
 
     # Возвращает верхнее событие из экземпляра класса
@@ -34,7 +31,7 @@ class Location:
         return event
 
     def location_back_print(self):
-        long_name = f'{game_texts.texts_location_back[randint(0, len(game_texts.texts_location_back) - 1)]} {self.location_name[0].title()}'
+        long_name = f'{game_texts.texts_location_back[randint(0, len(game_texts.texts_location_back) - 1)]} {self.location_name.title()}'
         print(long_name)
         pass
 
